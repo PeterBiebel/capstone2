@@ -1,0 +1,18 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+ul, li {
+	width: 100%;
+}
+li button {
+	float: right;
+}
+li {
+	height: 40px;
+	border-bottom: 1px solid #eee;
+}
