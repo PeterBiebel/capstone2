@@ -4,10 +4,74 @@ const Account = require('../models/account');
 const router = express.Router();
 const Comment = require('../models/comments');
 const Room = require('../models/room');
+const Emoji = require('../models/emoji');
 
 router.get('/', (req, res) => {
     res.render('index', { user : req.user });
 });
+
+router.get('/emoji/:emo', (req, res) => {
+   
+   
+   Comment.find({roomId:req.params.emo}).exec().then(comments => { 
+    
+            res.render('emo', {emotion: req.params.emo, user: req.user, comments: comments});
+    
+    }).catch(err => {throw err })
+})
+
+
+
+router.post('/emoji/:emo', isLoggedIn, (req, res) => { 
+    let comment = new Comment(req.body)
+    comment.owner = req.user._id
+    comment.date = new Date()
+    comment.roomId = req.params.emo
+    comment.save((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('back');
+    });
+
+})
+
+/* 
+get comments from data base to show on page 
+
+I will need to write a mongo query inbetween lines 13 and 16 for the get emoji/:emo request. 
+
+I will need to take the results of that query and pass it into the render on line 15.
+
+I will have to go to emo.hbs and write an each loop to display each comment like i did on profile.hbs page.
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 router.get('/profile', isLoggedIn, (req, res) => {
     Comment.find({owner:req.user.id}).exec().then(comments => {
@@ -110,7 +174,7 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/login'
         if (err) {
             return next(err);
         }
-        res.redirect('/profile');
+        res.redirect('/');
     });
 });
 
@@ -119,6 +183,7 @@ router.post('/comment', isLoggedIn, (req, res) => {
     let comment = new Comment(req.body)
     comment.owner = req.user._id
     comment.date = new Date()
+    comment.name = req.body.comment
     comment.save((err) => {
         if (err) {
             return next(err);
@@ -128,7 +193,20 @@ router.post('/comment', isLoggedIn, (req, res) => {
 
     
 })
+router.post('/emoji', isLoggedIn, (req, res) => {
+    console.log(req.body)
+    let emoji = new Emoji(req.body)
+    emoji.owner = req.user._id
+    emoji.date = new Date()
+    emoji.save((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/profile');
+    });
 
+    
+})
 router.get('/logout', (req, res, next) => {
     req.logout();
     req.session.save((err) => {

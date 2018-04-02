@@ -9,7 +9,6 @@ const Comment = new Schema({
    	roomId: String,
     likes:{type: Number, default: 0},
     dislikes:{type: Number, default: 0},
-    name: String,
 });
 
 

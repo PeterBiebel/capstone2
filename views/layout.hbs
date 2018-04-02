@@ -9,14 +9,62 @@
   <!--  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-   <link href="lib/css/emoji.css" rel="stylesheet">
+   <link href="../../../lib/css/emoji.css" rel="stylesheet">
   <!-- ** Don't forget to Add jQuery here ** -->
-   <script src="lib/js/config.js"></script>
-   <script src="lib/js/util.js"></script>
-   <script src="lib/js/jquery.emojiarea.js"></script>
-   <script src="lib/js/emoji-picker.js"></script>
+   <script src="../../../lib/js/config.js"></script>
+   <script src="../../../lib/js/util.js"></script>
+   <script src="../../../lib/js/jquery.emojiarea.js"></script>
+   <script src="../../../lib/js/emoji-picker.js"></script>
 </head>
   <body>
+   <div class="nav">
+    <div class="menu">
+    <a href="/emoji/worried">
+    <g-emoji class="g-emoji" alias="worried" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f61f.png">😟</g-emoji>
+   </a>
+   <a href="/emoji/laughing">
+    <g-emoji class="g-emoji" alias="laughing" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png">😆</g-emoji>
+   </a>
+   <a href="/emoji/worried">
+    <g-emoji class="g-emoji" alias="worried" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f61f.png">😟</g-emoji>
+   </a>
+   <a href="/emoji/laughing">
+    <g-emoji class="g-emoji" alias="laughing" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png">😆</g-emoji>
+   </a>
+   <a href="/emoji/worried">
+    <g-emoji class="g-emoji" alias="worried" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f61f.png">😟</g-emoji>
+   </a>
+   <a href="/emoji/laughing">
+    <g-emoji class="g-emoji" alias="laughing" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png">😆</g-emoji>
+   </a>
+   <a href="/emoji/worried">
+    <g-emoji class="g-emoji" alias="worried" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f61f.png">😟</g-emoji>
+   </a>
+   <a href="/emoji/laughing">
+    <g-emoji class="g-emoji" alias="laughing" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png">😆</g-emoji>
+   </a>
+ </div>
+   <div class="user">
+    {{#if user}}
+     <a href="/profile"> {{user.username}}</a>
+      
+      {{else}}
+      <a href="/login">Login</a>
+    <br>
+    <a href="/register">Register</a>
+    {{/if}}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
     {{{body}}}
   </body>
     <script src="../../../script.js"></script>

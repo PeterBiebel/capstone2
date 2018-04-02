@@ -21,8 +21,14 @@
 	</li>
 
 {{/each}}
-
-
+<hr>
+<h3>Emojis</h3>
+ <form role="form" action="/emoji" method="post" style="max-width: 300px;">
+  <div class="form-group lead emoji-picker-container">
+            <div data-emojiable="true" class="emoji"></div>
+        </div>
+        <button id="emoji"  class="btn btn-default">Emoji</button>
+<hr>
 <h3>Comments</h3>
  <form role="form" action="/comment" method="post" style="max-width: 300px;">
         <div class="form-group lead emoji-picker-container">
@@ -44,6 +50,7 @@
 	</li>
 
 {{/each}}
+
 <script>
  $(function() {
         // Initializes and creates emoji set from sprite sheet

@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -15,4 +15,15 @@ li button {
 li {
 	height: 40px;
 	border-bottom: 1px solid #eee;
+}
+.user {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 5px;
+}
+.menu g-emoji {
+	font-size: 7vw;
+	padding: 1vw;
+
 }

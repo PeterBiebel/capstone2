@@ -48,3 +48,19 @@ $('.down').click(function(){
 	});
 
 })
+$('#emoji').click(function(e) {
+	e.preventDefault()
+	console.log('buttonhit')
+	let value = $('input.emoji').val()
+	console.log(value)
+	$.ajax({
+	    url: '/emoji',
+	    type: 'POST',
+	    data: {emoji: value},
+	    success: function(result) {
+	    	p.find('.emoji').val()
+	    	console.log(result)
+	    	
+	    }
+	})
+ })
