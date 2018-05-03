@@ -1,7 +1,7 @@
 <h2>Welcome to {{emotion}} Page<h2>
 	<h3>Comments</h3>
 	{{sandwhich}}
- <form role="form" action="" method="post" style="max-width: 300px;">
+  <form role="form" action="" method="post" style="max-width: 300px;">
         <div class="form-group lead emoji-picker-container">
             <input type="text" name="comment" placeholder="enter comment" class="form-control" data-emojiable="true">
         </div>
@@ -10,15 +10,31 @@
         <a href="/">
             <button type="button" class="btn btn-primary">Cancel</button>
         </a>
-    </form>
-    {{#each comments}}
+  </form>
+  <div class="sorts">
+  	<a href="?sort=sad">Saddest</a>
+  	<a href="?sort=happy">Happiest</a>
+  	<a href="?sort=likes">Most Liked</a>
+  	<a href="?sort=dislikes">Most Disliked</a>
+  </div>
+  {{skip}}
+  {{#each comments}}
 	<li data-id = {{this._id}}>
-		<a href="/room/{{this._id}}">{{this.comment}}</a>
-		
-	 <button class="delete">Delete</button>
-	 <button class="down"><span class="dislikes fas fa-thumbs-down"> {{this.dislikes}}</span></button>
-	 <button class="up"><span class="likes fas fa-thumbs-up"> {{this.likes}}</span></button>
+		{{{this.sentiment.html}}}
+		{{this.comment}}
+	 	
+
+	 	<button class="delete">Delete</button>
+	 	<button class="down"><span class="dislikes fas fa-thumbs-down"> {{this.dislikes}}</span></button>
+	 	<button class="up"><span class="likes fas fa-thumbs-up"> {{this.likes}}</span></button>
 	</li>
 
 
-{{/each}}
+  {{/each}}
+
+  <div>
+	{{{previous}}}
+	{{{next}}}
+  </div>
+
+

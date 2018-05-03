@@ -5,15 +5,19 @@ body {
 
 a {
   color: #00B7FF;
+  position: relative;
 }
 ul, li {
 	width: 100%;
 }
 li button {
 	float: right;
+	line-height: 4vw;
 }
 li {
-	height: 40px;
+	list-style-type: none;
+	height: 8vw;
+	line-height: 8vw;
 	border-bottom: 1px solid #eee;
 }
 .user {
@@ -27,3 +31,35 @@ li {
 	padding: 1vw;
 
 }
+label {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	left: 0;
+	text-align: center;
+
+}
+li .g-emoji {
+	font-size: 4vw;
+}
+.sorts {
+	line-height: 4vw;
+}
+.btn-default {
+	background-color: #a6ff4d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

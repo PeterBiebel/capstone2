@@ -64,3 +64,13 @@ $('#emoji').click(function(e) {
 	    }
 	})
  })
+
+
+
+
+
+
+
+
+
+
