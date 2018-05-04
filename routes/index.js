@@ -30,6 +30,7 @@ router.get('/emoji/:emo', (req, res) => {
     
     }
     let skip = 0; 
+    let num = 5;
     let previous = `no previous results`
     let next = `the end`
     req.query.skip ?  skip = Number(req.query.skip) : skip = 0;
@@ -37,13 +38,13 @@ router.get('/emoji/:emo', (req, res) => {
     //let skip = Number(req.query.skip)+1 || 0
     //let next = `<a href="?skip=${skip}" class="next">Next &raquo;</a>`
     //let previous = `<a href="#" class="previous">&laquo; Previous</a>`
-    Comment.find({roomId:req.params.emo}).sort(obj[req.query.sort]).limit().skip(skip).exec().then(comments => {
+    Comment.find({roomId:req.params.emo}).sort(obj[req.query.sort]).limit(num).skip(skip).exec().then(comments => {
   // Comment.find({roomId:req.params.emo}).sort(obj[req.query.sort]).limit(3).skip().exec().then(comments => { 
-            if (skip + 1 < comments.length + skip){
-                next = `<a href="?skip=${skip + 1}" class="next">Next &raquo;</a>` 
+            if (num <= comments.length ){
+                next = `<a href="?skip=${skip + num}&sort=${req.query.sort}" class="next">Next &raquo;</a>` 
             }
-            if (skip - 1 >= 0){
-                previous = `<a href="?skip=${skip - 1}" class="previous">&laquo; Previous</a>`   
+            if (skip - num >= 0){
+                previous = `<a href="?skip=${skip - num}" class="previous">&laquo; Previous</a>`   
             }   
                 
             res.render('emo', {emotion: req.params.emo, user: req.user, comments: comments, skip: skip, next: next, previous: previous});
