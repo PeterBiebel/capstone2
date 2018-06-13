@@ -103,27 +103,20 @@ I will have to go to emo.hbs and write an each loop to display each comment like
 
 */
 
+router.post('/profile', isLoggedIn, (req, res) => {
 
+    console.log('before', req.body, req.user, req.params, req.query) 
+    req.user.email = req.body.email
+    req.user.bio = req.body.bio
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    req.user.save((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('back');
+    });
+  
+})
 
 
 

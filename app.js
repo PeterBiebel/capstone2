@@ -14,7 +14,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
+console.log('start LATER');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
@@ -46,7 +46,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 // mongoose
-mongoose.connect('mongodb://localhost/boiler');
+mongoose.connect('mongodb://PeterBiebel:godawgs1988@ds259250.mlab.com:59250/emotions');//('mongodb://localhost/boiler');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
